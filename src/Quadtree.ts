@@ -275,22 +275,16 @@ export class Quadtree<
   }
 
   remove(obj: ObjectsType): void {
-    //if we have subnodes, call insert on matching subnodes
-    if (this.nodes.length) {
-      const indexes = this.getIndex(obj);
-
-      for (let i = 0; i < indexes.length; i++) {
-        this.nodes[indexes[i]].remove(obj);
-      }
-      return;
+    // remove on nodes and all nested nodes
+    for (let i = 0; i < this.nodes.length; i++) {
+      this.nodes[i].remove(obj);
     }
 
-    //otherwise, store object here
+    // remove all related nodes
+    this.nodes = this.nodes.filter((n) => n.objects.length);
 
-    const index = this.objects.indexOf(obj);
-    if (index > -1) {
-      this.objects.splice(index, 1);
-    }
+    // remove objects
+    this.objects = this.objects.filter((o) => o !== obj);
   }
 
   update(objectToUpdate: ObjectsType, updatedObject: ObjectsType): void {
