@@ -294,9 +294,9 @@ export class Quadtree<
     }
   }
 
-  update(obj: ObjectsType): void {
-    this.remove(obj);
-    this.insert(obj);
+  update(objectToUpdate: ObjectsType, updatedObject: ObjectsType): void {
+    this.remove(objectToUpdate);
+    this.insert(updatedObject);
   }
 
   /**
