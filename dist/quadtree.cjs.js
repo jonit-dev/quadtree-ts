@@ -167,6 +167,7 @@ class Quadtree {
         return returnObjects;
     }
     remove(obj) {
+        console.log('removing object...');
         //if we have subnodes, call remove on matching subnodes
         if (this.nodes.length) {
             const indexes = this.getIndex(obj);

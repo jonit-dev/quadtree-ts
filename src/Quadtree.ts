@@ -275,22 +275,21 @@ export class Quadtree<
   }
 
   remove(obj: ObjectsType): void {
-    console.log('removing object...');
-    //if we have subnodes, call remove on matching subnodes
+    //if we have subnodes, call insert on matching subnodes
     if (this.nodes.length) {
       const indexes = this.getIndex(obj);
 
       for (let i = 0; i < indexes.length; i++) {
         this.nodes[indexes[i]].remove(obj);
       }
+      return;
     }
 
-    //otherwise, remove just remove object
+    //otherwise, store object here
 
-    const object = this.objects.find((o) => o === obj);
-
-    if (object) {
-      this.objects = this.objects.filter((o) => o !== obj);
+    const index = this.objects.indexOf(obj);
+    if (index > -1) {
+      this.objects.splice(index, 1);
     }
   }
 
