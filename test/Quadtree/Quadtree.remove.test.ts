@@ -10,5 +10,6 @@ describe('Quadtree.remove', () => {
     tree.remove(rect);
 
     expect(tree.objects).toEqual([]);
+    expect(tree.nodes).toEqual([]);
   });
 });
