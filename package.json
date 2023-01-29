@@ -1,6 +1,6 @@
 {
   "name": "@jonit-dev/quadtree-ts",
-  "version": "2.0.3",
+  "version": "2.0.31",
   "description": "Another quadtree implementation for javascript",
   "author": "Timo Hausmann",
   "license": "MIT",
