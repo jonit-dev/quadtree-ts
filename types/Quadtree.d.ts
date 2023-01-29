@@ -161,7 +161,7 @@ export declare class Quadtree<ObjectsType extends Rectangle | Circle | Line | In
      */
     retrieve(obj: Rectangle | Circle | Line | Indexable): ObjectsType[];
     remove(obj: ObjectsType): void;
-    update(obj: ObjectsType): void;
+    update(objectToUpdate: ObjectsType, updatedObject: ObjectsType): void;
     /**
      * Clear the Quadtree.
      *

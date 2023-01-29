@@ -167,16 +167,23 @@ class Quadtree {
         return returnObjects;
     }
     remove(obj) {
-        const i = this.getIndex(obj);
-        if (i.length > 0) {
-            this.nodes[i[0]].remove(obj);
+        //if we have subnodes, call remove on matching subnodes
+        if (this.nodes.length) {
+            const indexes = this.getIndex(obj);
+            for (let i = 0; i < indexes.length; i++) {
+                this.nodes[indexes[i]].remove(obj);
+            }
             return;
         }
-        this.objects = this.objects.filter((o) => o !== obj);
+        //otherwise, remove just remove object
+        const object = this.objects.find((o) => o === obj);
+        if (object) {
+            this.objects = this.objects.filter((o) => o !== obj);
+        }
     }
-    update(obj) {
-        this.remove(obj);
-        this.insert(obj);
+    update(objectToUpdate, updatedObject) {
+        this.remove(objectToUpdate);
+        this.insert(updatedObject);
     }
     /**
      * Clear the Quadtree.
