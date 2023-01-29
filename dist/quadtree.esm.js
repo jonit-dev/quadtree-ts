@@ -169,7 +169,6 @@ class Quadtree {
             for (let i = 0; i < indexes.length; i++) {
                 this.nodes[indexes[i]].remove(obj);
             }
-            return;
         }
         //otherwise, remove just remove object
         const object = this.objects.find((o) => o === obj);
