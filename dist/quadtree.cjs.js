@@ -41,8 +41,9 @@ class Quadtree {
             width: props.width,
             height: props.height,
         };
-        this.maxObjects = (typeof props.maxObjects === 'number') ? props.maxObjects : 10;
-        this.maxLevels = (typeof props.maxLevels === 'number') ? props.maxLevels : 4;
+        this.maxObjects =
+            typeof props.maxObjects === 'number' ? props.maxObjects : 10;
+        this.maxLevels = typeof props.maxLevels === 'number' ? props.maxLevels : 4;
         this.level = level;
         this.objects = [];
         this.nodes = [];
@@ -164,6 +165,16 @@ class Quadtree {
             return returnObjects.indexOf(item) >= index;
         });
         return returnObjects;
+    }
+    remove(obj) {
+        const indexes = this.getIndex(obj);
+        for (let i = 0; i < indexes.length; i++) {
+            this.nodes[indexes[i]].remove(obj);
+        }
+    }
+    update(obj) {
+        this.remove(obj);
+        this.insert(obj);
     }
     /**
      * Clear the Quadtree.

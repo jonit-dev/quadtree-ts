@@ -1,7 +1,7 @@
-import type { NodeGeometry, Indexable } from './types';
-import type { Rectangle } from './Rectangle';
 import type { Circle } from './Circle';
 import type { Line } from './Line';
+import type { Rectangle } from './Rectangle';
+import type { Indexable, NodeGeometry } from './types';
 /**
  * Quadtree Constructor Properties
  */
@@ -160,6 +160,8 @@ export declare class Quadtree<ObjectsType extends Rectangle | Circle | Line | In
      * @returns Array containing all detected objects.
      */
     retrieve(obj: Rectangle | Circle | Line | Indexable): ObjectsType[];
+    remove(obj: ObjectsType): void;
+    update(obj: ObjectsType): void;
     /**
      * Clear the Quadtree.
      *
