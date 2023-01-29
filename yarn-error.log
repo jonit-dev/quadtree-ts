@@ -1,0 +1,86 @@
+Arguments: 
+  /home/jonit/.nvm/versions/node/v16.19.0/bin/node /home/jonit/.nvm/versions/node/v16.19.0/bin/yarn publish
+
+PATH: 
+  /home/jonit/.nvm/versions/node/v16.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.19.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/home/jonit/.nvm/versions/node/v16.19.0/lib/node_modules/yarn/lib/cli.js:137150:13)
+      at Interface.emit (node:events:513:28)
+      at Interface._ttyWrite (node:readline:1085:16)
+      at ReadStream.onkeypress (node:readline:291:10)
+      at ReadStream.emit (node:events:513:28)
+      at emitKeys (node:internal/readline/utils:357:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:61:36)
+      at ReadStream.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:315:12)
+
+npm manifest: 
+  {
+    "name": "@jonit-dev/quadtree-ts",
+    "version": "2.0.2",
+    "description": "Another quadtree implementation for javascript",
+    "author": "Timo Hausmann",
+    "license": "MIT",
+    "main": "dist/quadtree.cjs.js",
+    "module": "dist/quadtree.esm.js",
+    "browser": "dist/quadtree.umd.full.js",
+    "types": "types/index.esm.d.ts",
+    "scripts": {
+      "build": "npm run rollup && npm run docs && npm run dts",
+      "rollup": "rollup -c",
+      "dev": "rollup -c -w",
+      "lint": "eslint --ext .ts src/",
+      "lint:fix": "eslint --fix --ext .ts src/",
+      "test": "jest --verbose",
+      "docs": "typedoc --out docs/documentation --readme none src/index.esm.ts",
+      "dts": "tsc src/index.esm.ts --declaration --emitDeclarationOnly --outDir ./types/"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/timohausmann/quadtree-ts.git"
+    },
+    "bugs": {
+      "url": "https://github.com/timohausmann/quadtree-ts/issues"
+    },
+    "keywords": [
+      "quadtree"
+    ],
+    "directories": {
+      "example": "docs"
+    },
+    "devDependencies": {
+      "@rollup/plugin-typescript": "^8.2.5",
+      "@tsconfig/recommended": "^1.0.1",
+      "@types/jest": "^27.0.1",
+      "@typescript-eslint/eslint-plugin": "^4.29.3",
+      "@typescript-eslint/parser": "^4.29.3",
+      "eslint": "^7.32.0",
+      "eslint-plugin-tsdoc": "^0.2.14",
+      "jest": "^27.1.0",
+      "rollup": "^2.56.2",
+      "rollup-plugin-banner2": "^1.2.2",
+      "rollup-plugin-terser": "^7.0.2",
+      "ts-jest": "^27.0.5",
+      "tslib": "^2.3.1",
+      "typedoc": "^0.22.5",
+      "typescript": "^4.3.5"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

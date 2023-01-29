@@ -275,10 +275,12 @@ export class Quadtree<
   }
 
   remove(obj: ObjectsType): void {
-    const indexes = this.getIndex(obj);
-    for (let i = 0; i < indexes.length; i++) {
-      this.nodes[indexes[i]].remove(obj);
+    const i = this.getIndex(obj);
+    if (i.length > 0) {
+      this.nodes[i[0]].remove(obj);
+      return;
     }
+    this.objects = this.objects.filter((o) => o !== obj);
   }
 
   update(obj: ObjectsType): void {
